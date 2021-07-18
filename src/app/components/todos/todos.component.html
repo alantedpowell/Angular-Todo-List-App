@@ -1,0 +1,37 @@
+<!-- <div class="container todos">
+    <div class="todos" *ngFor="let todo of todos; let i = index;">
+        <div class="id">{{ i + 1 }}</div>
+        <div class="task">{{ todo.content }}</div>
+        <button class="delete">Remove</button>
+    </div>
+</div> -->
+
+<div class="container col-4 todos-list">
+    <h1>Todo List</h1>
+    <h6>Hey there, {{ firstName }}.</h6>
+    <p>Click a task toggle its completion.</p>
+    <form (submit)="addTodo()">
+        <input 
+            type="text" 
+            name="inputTodo" 
+            placeholder="Let's Get Something Done..." 
+            class="todo-input"
+            [(ngModel)]="inputTodo"
+        >
+        <input type="submit" value="Add Todo" class="add-todo">
+    </form>
+    <div class="decorator-line"></div>
+    <div *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completed ? 'done' : '') }}">
+        <div class="id">{{ i + 1 }}. </div>
+        <div class="content" (click)="toggleCompletion(i)">{{ todo.content }}</div>
+        <button class="delete" (click)="deleteTodo(i)">Remove</button>
+    </div>
+    <form>
+        <input 
+            type="submit"
+            value="Remove All"
+            class="remove-all-todo"
+            (click)="removeAllTodo()"
+        >
+    </form>
+</div>
